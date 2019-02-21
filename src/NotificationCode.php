@@ -19,9 +19,9 @@ abstract class NotificationCode
     protected $notification_code = 'notification_code';
     protected $notification_message = 'notification_message';
 
-    public function decode($decodable, $code)
+    public function decode($decodable)
     {
-        $notification = $this->notification_model::where($this->notification_code, $code)->first();
+        $notification = $this->notification_model::where($this->notification_code, $decodable['code'])->first();
         $this->message = $notification{$this->notification_message};
 
         foreach ($decodable['customContent'] as $name => $content) {
