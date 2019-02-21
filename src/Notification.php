@@ -75,7 +75,6 @@ class Notification extends NotificationCode implements INotification
         $response = curl_exec($ch);
         $response = json_decode($response);
         curl_close($ch);
-        dd($response);
         return $response;
     }
 

@@ -17,10 +17,12 @@ abstract class NotificationCode
 
     protected $notification_model = 'App\Model\Application\Notification';
     protected $notification_code = 'notification_code';
+    protected $notification_message = 'notification_message';
 
     public function decode($decodable, $code)
     {
         $notification = $this->notification_model::where($this->notification_code, $code)->first();
+        $this->message = $notification{$this->notification_message};
 
         foreach ($decodable['customContent'] as $name => $content) {
             $this->message = str_replace($this->replaceable . $name, $content, $this->message);
