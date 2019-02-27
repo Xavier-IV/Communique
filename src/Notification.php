@@ -13,7 +13,10 @@ use XavierIV\Communique\Interfaces\INotification;
 class Notification extends NotificationCode implements INotification
 {
     protected $parameters;
+
     protected $recipient;
+    protected $from;
+
     protected $message;
 
     protected $notification;
